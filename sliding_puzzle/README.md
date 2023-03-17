@@ -1,6 +1,6 @@
 # sliding_puzzle
 
-A new Flutter project.
+Sliding Puzzle project for Software Engineering Theory and Practice.
 
 ## Getting Started
 
