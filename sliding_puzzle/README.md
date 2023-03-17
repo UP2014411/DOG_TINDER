@@ -1,4 +1,4 @@
-# sliding_puzzle
+# Sliding Puzzle
 
 Sliding Puzzle project for Software Engineering Theory and Practice.
 
