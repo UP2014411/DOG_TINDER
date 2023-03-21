@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(const MaterialApp(
+    title: 'Tinder for Dogs',
+    home: MyApp(),
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -10,21 +20,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 255, 183, 0),
+        title: const Text(
+          'Tinder for Dogs',
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
+        // Placeholer icon code below, thinking of adding a dog head there that also serves as a navigation bar
+        leading: IconButton(
+          icon: const Icon(Icons.add_alert),
+          tooltip: 'Show Snackbar',
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('This is a snackbar')));
+          },
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      body: Container(),
     );
   }
 }
