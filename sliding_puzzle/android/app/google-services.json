@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879015582623",
+    "project_id": "plze-backend",
+    "storage_bucket": "plze-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879015582623:android:f12d282c8df535cea8bbaa",
+        "android_client_info": {
+          "package_name": "com.example.sliding_puzzle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879015582623-8pj1bvq1i83uh85u98lg6ogdlpl8b4qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnl_4h0t2AdhSP07kFyPi2ylarh-QvAvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879015582623-8pj1bvq1i83uh85u98lg6ogdlpl8b4qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
