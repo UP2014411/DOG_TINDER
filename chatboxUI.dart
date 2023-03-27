@@ -21,7 +21,7 @@ shape:RoundedRectangleBorder(
 borderRadius:BorderRadius.zero,
 ),
 title:Text(
-"ChatBox",
+"user_name",
 style:TextStyle(
 fontWeight:FontWeight.w400,
 fontStyle:FontStyle.normal,
@@ -30,9 +30,9 @@ color:Color(0xff000000),
 ),
 ),
 leading: Icon(
-Icons.arrow_back,
+Icons.arrow_back_ios,
 color:Color(0xff212435),
-size:24,
+size:18,
 ),
 ),
 body:
