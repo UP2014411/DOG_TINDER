@@ -1,5 +1,5 @@
 import 'package:dog_tinder/widgets/tinder_card.dart';
-import 'package:dog_tinder/widgets/build_objects.dart';
+import 'package:dog_tinder/widgets/app_objects.dart';
 import 'package:dog_tinder/user.dart';
 import 'package:dog_tinder/styles/app_style.dart';
 import 'package:flutter/material.dart';
@@ -31,19 +31,32 @@ class _SwipingCardState extends State<SwipingCard> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-            child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              appLogo(),
-              const SizedBox(height: 16),
-              Expanded(child: DogTinderCard(user: user)),
-              const SizedBox(height: 16),
-              matchButtons(),
-            ],
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                appLogo(),
+                const SizedBox(height: 16),
+                Expanded(child: DogTinderCard(user: user)),
+                const SizedBox(height: 16),
+                matchButtons(),
+              ],
+            ),
           ),
-        )),
+        ),
       ),
     );
+
+    // MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(
+    //       elevatedButtonTheme: ElevatedButtonThemeData(
+    //           style: ElevatedButton.styleFrom(
+    //     elevation: 8,
+    //     backgroundColor: Colors.white,
+    //     shape: const CircleBorder(),
+    //     minimumSize: const Size.square(80),
+    //   ))),
+    //   home: );
   }
 }

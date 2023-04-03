@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '/styles/app_style.dart';
 import '/widgets/bottom_nav_bar.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,16 +15,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         // Top App Bar
         appBar: AppBar(
-          title: const Text(
-            '🐶 Tinder for Dogs',
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'Rubik',
+            title: Text(
+              'Dog Tinder',
+              style: AppStyle.appBarStyle,
             ),
-          ),
-        ),
+            // App Icon
+            leading: AppStyle.appIcon),
 
-        // App Background
+        /// App Background
         body: Stack(
           children: <Widget>[
             Container(
@@ -36,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
 
-        // Bottom Nav bar
+        /// Bottom Nav bar
         bottomNavigationBar: const BottomNavBar());
   }
 }
