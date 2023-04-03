@@ -1,33 +1,17 @@
-import 'package:dog_tinder/widgets/swiping_card.dart';
-import 'widgets/build_objects.dart';
-import 'package:dog_tinder/user.dart';
 import 'package:dog_tinder/widgets/tinder_card.dart';
+import 'package:dog_tinder/widgets/build_objects.dart';
+import 'package:dog_tinder/user.dart';
+import 'package:dog_tinder/styles/app_style.dart';
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'styles/app_style.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
-Future<void> main() async {
-  /// Initializes the application
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class SwipingCard extends StatefulWidget {
+  const SwipingCard({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _MyAppState();
-  }
+  State<SwipingCard> createState() => _SwipingCardState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SwipingCardState extends State<SwipingCard> {
   final user = const User(
       name: 'Steffi',
       age: 20,
@@ -61,17 +45,5 @@ class _MyAppState extends State<MyApp> {
         )),
       ),
     );
-
-    // MaterialApp(
-    //   title: 'Tinder for Dogs',
-    //   debugShowCheckedModeBanner: false,
-    //   theme: ThemeData(
-    //     appBarTheme: const AppBarTheme(
-    //         elevation: 5,
-    //         backgroundColor: Color.fromARGB(255, 255, 60, 0),
-    //         titleTextStyle: TextStyle(fontFamily: 'Rubik', fontSize: 20)),
-    //   ),
-    //   home: const HomeScreen(), // lib/screens/home_screen.dart
-    // );
   }
 }

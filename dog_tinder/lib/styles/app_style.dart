@@ -17,4 +17,7 @@ class AppStyle {
 
   static TextStyle dateTitle =
       GoogleFonts.nunito(fontSize: 13, fontWeight: FontWeight.w500);
+
+  static TextStyle cardName = GoogleFonts.nunito(
+      fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white);
 }
