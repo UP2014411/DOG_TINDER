@@ -59,7 +59,7 @@ class HomeScreen extends State<HomeScreenState> {
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
                       child: Image.asset(
-                        'assets/img/cute.png',
+                        'images/cute.png',
                         height: 100,
                       ),
                     ),
