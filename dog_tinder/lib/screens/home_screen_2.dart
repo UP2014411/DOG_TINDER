@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
+import 'login_screen.dart';
 
 class HomeScreenState extends StatefulWidget {
   const HomeScreenState({super.key, required this.title});
@@ -100,7 +101,13 @@ class HomeScreen extends State<HomeScreenState> {
                   child: Align(
                     alignment: Alignment.center,
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const LoginScreenState(
+                              title: "Log into Dog Tinder");
+                        }));
+                      },
                       color: const Color(0x00ff5630),
                       elevation: 0,
                       shape: RoundedRectangleBorder(
