@@ -23,7 +23,7 @@ class _SearchBarState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Top App Bar
-      appBar: AppStyle.appBar,
+      appBar: AppStyle.mainAppBar,
       body: Stack(
         children: <Widget>[
           Container(

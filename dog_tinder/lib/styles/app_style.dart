@@ -11,16 +11,45 @@ class AppStyle {
   static TextStyle profileCardName = GoogleFonts.nunito(
       fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white);
 
-  /// AppBar styling
-  static AppBar appBar = AppBar(
-      title: Text('Dog Tinder', style: AppStyle.appBarStyle),
+  /// Welcome Page AppBar styling
+  static AppBar welcomeAppBar = AppBar(
+    backgroundColor: const Color(0xfffd297b),
+    flexibleSpace: Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xfffd297b), Color(0xffff655b)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: const Center(
+        child: Text("Tinder for Dogs",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            )),
+      ),
+    ),
+  );
+
+  /// Main AppBar styling
+  static AppBar mainAppBar = AppBar(
+      title: const Text(
+        'Dog Tinder',
+        style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
       leading: AppStyle.appBarIcon);
 
-  static TextStyle appBarStyle =
-      TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black);
+  static TextStyle appBarStyle = const TextStyle(
+      fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black);
 
   static Icon appBarIcon =
-      Icon(Icons.local_fire_department_rounded, // Tinder Icon
+      const Icon(Icons.local_fire_department_rounded, // Tinder Icon
           color: Colors.black,
           size: 36);
 
