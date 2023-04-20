@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
 import '/styles/app_style.dart';
+import 'package:flutter/material.dart';
+import 'package:dog_tinder/screens/chat.dart';
+import 'package:dog_tinder/screens/search.dart';
+import 'package:dog_tinder/screens/account.dart';
+import 'package:dog_tinder/screens/home_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -11,11 +15,23 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
 
+  _onTap() {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (BuildContext context) => _pageOptions[_selectedIndex]));
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+    _onTap();
   }
+
+  final _pageOptions = [
+    HomeScreen(),
+    ChatPage(),
+    AccountPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +44,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
       items: const <BottomNavigationBarItem>[
         // Home Icon
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+        // Chat Bubble Icon
+        BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: 'Chat'),
         // Account Icon
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_rounded), label: 'Account'),
-        // Chat Bubble Icon
-        BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: 'Chat'),
         // Search Icon
-        BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search')
+        // BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search')
       ],
     );
   }

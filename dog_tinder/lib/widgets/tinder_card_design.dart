@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:dog_tinder/user.dart';
 import 'package:dog_tinder/styles/app_style.dart';
 
-class DogTinderCard extends StatefulWidget {
+/// The design of the profile cards that the users see
+
+class TinderCard extends StatefulWidget {
   // Gets the user information
   final User user;
 
-  const DogTinderCard({
+  const TinderCard({
     Key? key,
     required this.user,
   }) : super(key: key);
 
   @override
-  State<DogTinderCard> createState() => _DogTinderCardState();
+  State<TinderCard> createState() => _DogTinderCardState();
 }
 
-class _DogTinderCardState extends State<DogTinderCard> {
+class _DogTinderCardState extends State<TinderCard> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -50,38 +52,42 @@ class _DogTinderCardState extends State<DogTinderCard> {
     );
   }
 
-  Widget userName() => Row(
-        children: [
-          Text(
-            widget.user.name,
-            style: AppStyle.cardName,
+  Widget userName() {
+    return Row(
+      children: [
+        Text(
+          widget.user.name,
+          style: AppStyle.profileCardName,
+        ),
+        const SizedBox(width: 16),
+        Text(
+          '${widget.user.age}',
+          style: const TextStyle(
+            fontSize: 32,
+            color: Colors.white,
           ),
-          const SizedBox(width: 16),
-          Text(
-            '${widget.user.age}',
-            style: const TextStyle(
-              fontSize: 32,
-              color: Colors.white,
-            ),
-          ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 
-  Widget userStatus() => Row(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.green,
-            ),
-            width: 12,
-            height: 12,
+  Widget userStatus() {
+    return Row(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.green,
           ),
-          const SizedBox(width: 8),
-          const Text(
-            'Recently Active',
-            style: TextStyle(fontSize: 20, color: Colors.white),
-          ),
-        ],
-      );
+          width: 12,
+          height: 12,
+        ),
+        const SizedBox(width: 8),
+        const Text(
+          'Recently Active',
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+      ],
+    );
+  }
 }
