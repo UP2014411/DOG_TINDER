@@ -1,37 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:dog_tinder/styles/app_style.dart';
 
-class LoginScreenState extends StatefulWidget {
-  const LoginScreenState({super.key, required this.title});
-  final String title;
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginScreenState> createState() => LoginScreen();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class LoginScreen extends State<LoginScreenState> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xfffd297b),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xfffd297b), Color(0xffff655b)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: const Center(
-            child: Text("Tinder for Dogs",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                )),
-          ),
-        ),
-      ),
+      appBar: AppStyle.welcomeAppBar,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

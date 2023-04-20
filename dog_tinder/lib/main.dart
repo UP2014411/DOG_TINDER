@@ -1,11 +1,10 @@
-import 'package:dog_tinder/screens/home_screen.dart';
-import 'package:dog_tinder/widgets/bottom_nav_bar.dart';
-import 'package:dog_tinder/widgets/card_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
-import 'styles/app_style.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:dog_tinder/screens/home_screen.dart';
+import 'package:dog_tinder/screens/welcome_screen.dart';
+import 'package:dog_tinder/widgets/card_provider.dart';
 
 Future<void> main() async {
   /// Initializes the application
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
               minimumSize: const Size.square(80),
             )),
           ),
-          home: HomePage()),
+          home: const HomePage()),
     );
   }
 }
@@ -58,7 +57,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: HomeScreen(),
     );
   }

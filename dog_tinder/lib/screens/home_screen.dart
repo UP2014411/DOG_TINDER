@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       // displays the profile cards to the users
       child: Scaffold(
-        appBar: AppStyle.appBar,
+        appBar: AppStyle.mainAppBar,
         body: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(16),

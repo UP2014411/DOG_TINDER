@@ -23,7 +23,7 @@ class _ChatState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Top App Bar
-      appBar: AppStyle.appBar,
+      appBar: AppStyle.mainAppBar,
       body: Stack(
         children: <Widget>[
           Container(

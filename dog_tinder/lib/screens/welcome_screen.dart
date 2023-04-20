@@ -1,40 +1,20 @@
 import 'package:flutter/material.dart';
 import 'register_screen.dart';
-import 'login_screen.dart';
+import 'package:dog_tinder/styles/app_style.dart';
+import 'package:dog_tinder/screens/login_screen.dart';
 
-class HomeScreenState extends StatefulWidget {
-  const HomeScreenState({super.key, required this.title});
-  final String title;
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
 
   @override
-  State<HomeScreenState> createState() => HomeScreen();
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class HomeScreen extends State<HomeScreenState> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xfffd297b),
-        automaticallyImplyLeading: false,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xfffd297b), Color(0xffff655b)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: const Center(
-            child: Text("Tinder for Dogs",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                )),
-          ),
-        ),
-      ),
+      appBar: AppStyle.welcomeAppBar,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -104,8 +84,7 @@ class HomeScreen extends State<HomeScreenState> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const LoginScreenState(
-                              title: "Log into Dog Tinder");
+                          return const LoginScreen();
                         }));
                       },
                       color: const Color(0x00ff5630),
@@ -138,8 +117,7 @@ class HomeScreen extends State<HomeScreenState> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return const RegisterScreenState(
-                              title: "Dog Tinder Registration");
+                          return const RegisterScreen();
                         }));
                       },
                       color: const Color(0x00ffffff),
