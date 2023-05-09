@@ -1,9 +1,8 @@
 import '/styles/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:dog_tinder/screens/chatUI.dart';
-import 'package:dog_tinder/screens/search.dart';
-import 'package:dog_tinder/screens/account.dart';
 import 'package:dog_tinder/screens/home_screen.dart';
+import 'package:dog_tinder/screens/accountScreen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -30,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final _pageOptions = [
     HomeScreen(),
     Chatscreen(),
-    AccountPage(),
+    AccountScreen(),
   ];
 
   @override
