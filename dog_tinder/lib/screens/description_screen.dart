@@ -34,9 +34,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomTextHeader(text: 'Describe Yourself'),
+              const CustomTextHeader(text: 'Describe Your Dog'),
               CustomTextField(
-                hint: 'ENTER YOUR BIO',
+                hint: 'ENTER A BIO FOR YOUR DOG',
                 onChanged: (value) {
                   setState(() {
                     bio = value;
@@ -44,9 +44,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 },
               ),
               SizedBox(height: height(context) * 0.002),
-              const CustomTextHeader(text: 'Enter your breed?'),
+              const CustomTextHeader(text: 'Enter your dog\'s breed?'),
               CustomTextField(
-                hint: 'ENTER YOUR BREED',
+                hint: 'ENTER YOUR DOG\'S BREED',
                 onChanged: (value) {
                   setState(() {
                     bread = value;
@@ -61,7 +61,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 totalSteps: 6,
                 currentStep: 5,
                 selectedColor: Theme.of(context).primaryColorDark,
-                unselectedColor: Theme.of(context).backgroundColor,
+                unselectedColor: Theme.of(context).colorScheme.background,
               ),
               SizedBox(height: height(context) * 0.02),
               DecoratedBox(
@@ -89,7 +89,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent,
+                      backgroundColor: Colors.transparent,
                       elevation: 0,
                     ),
                     child: SizedBox(

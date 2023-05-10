@@ -35,9 +35,9 @@ class _LocationScreenState extends State<LocationScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomTextHeader(text: 'Enter your name?'),
+                const CustomTextHeader(text: 'Enter your dogs name?'),
                 CustomTextField(
-                  hint: 'ENTER YOUR NAME',
+                  hint: 'ENTER YOUR DOGS NAME',
                   onChanged: (value) {
                     setState(() {
                       name = value;
@@ -45,7 +45,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   },
                 ),
                 SizedBox(height: height(context) * 0.002),
-                const CustomTextHeader(text: 'Where Are You?'),
+                const CustomTextHeader(text: 'What\'s your location?'),
                 CustomTextField(
                   hint: 'ENTER YOUR LOCATION',
                   onChanged: (value) {
@@ -62,7 +62,7 @@ class _LocationScreenState extends State<LocationScreen> {
                   totalSteps: 6,
                   currentStep: 6,
                   selectedColor: Theme.of(context).primaryColorDark,
-                  unselectedColor: Theme.of(context).backgroundColor,
+                  unselectedColor: Theme.of(context).colorScheme.background,
                 ),
                 SizedBox(height: height(context) * 0.02),
                 DecoratedBox(
@@ -90,7 +90,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.transparent,
+                        backgroundColor: Colors.transparent,
                         elevation: 0,
                       ),
                       child: SizedBox(

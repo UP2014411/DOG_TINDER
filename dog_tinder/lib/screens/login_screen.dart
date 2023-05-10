@@ -94,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 10,
                   ),
                   CustomElevatedButton(
-                      text: 'SIGNUP',
+                      text: 'SIGN UP',
                       beginColor: kBlueMainColorOne.withAlpha(1000),
                       endColor: kBlueMainColorOne,
                       textColor: kColorWhite,

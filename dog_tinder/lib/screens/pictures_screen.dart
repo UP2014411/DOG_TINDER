@@ -116,7 +116,7 @@ class PicturesScreen extends StatelessWidget {
                   totalSteps: 6,
                   currentStep: 4,
                   selectedColor: Theme.of(context).primaryColorDark,
-                  unselectedColor: Theme.of(context).backgroundColor,
+                  unselectedColor: Theme.of(context).colorScheme.background,
                 ),
                 SizedBox(height: height(context) * 0.02),
                 DecoratedBox(
@@ -137,7 +137,7 @@ class PicturesScreen extends StatelessWidget {
                         tabController.animateTo(tabController.index + 1);
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.transparent,
+                        backgroundColor: Colors.transparent,
                         elevation: 0,
                       ),
                       child: SizedBox(

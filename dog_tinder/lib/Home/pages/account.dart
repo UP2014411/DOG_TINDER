@@ -65,7 +65,7 @@ class _AccountPageState extends State<AccountPage> {
                       style: GoogleFonts.lora(
                         fontSize: 17.sp,
                         color: kColorWhite,
-                        textStyle: Theme.of(context).textTheme.headline1,
+                        textStyle: Theme.of(context).textTheme.displayLarge,
                       ),
                     ),
                   ),
@@ -83,7 +83,7 @@ class _AccountPageState extends State<AccountPage> {
                     style: GoogleFonts.lora(
                       fontSize: 10.sp,
                       color: kColorBlack,
-                      textStyle: Theme.of(context).textTheme.subtitle2,
+                      textStyle: Theme.of(context).textTheme.titleSmall,
                     ),
                   ),
                   const TitleWithIcon(title: 'Pictures', iconData: Icons.edit),
@@ -108,14 +108,14 @@ class _AccountPageState extends State<AccountPage> {
                       style: GoogleFonts.lora(
                         fontSize: 10.sp,
                         color: kColorBlack,
-                        textStyle: Theme.of(context).textTheme.subtitle2,
+                        textStyle: Theme.of(context).textTheme.titleSmall,
                       )),
                   const TitleWithIcon(title: 'Breed', iconData: Icons.edit),
                   Text(StaticData.userModel!.breed!,
                       style: GoogleFonts.lora(
                         fontSize: 10.sp,
                         color: kColorBlack,
-                        textStyle: Theme.of(context).textTheme.subtitle2,
+                        textStyle: Theme.of(context).textTheme.titleSmall,
                       )),
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
