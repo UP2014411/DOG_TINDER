@@ -91,7 +91,7 @@ class _UserListPageState extends State<UserListPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Your Likes",
+                          "Your Matches",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: width * 0.04,
@@ -105,7 +105,7 @@ class _UserListPageState extends State<UserListPage> {
                             height: height,
                             width: width,
                             child: obj.allMylikes.isEmpty
-                                ? Center(child: Text('No MyLikes Found'))
+                                ? Center(child: Text('No Matches Found'))
                                 : ListView.builder(
                                     itemCount: obj.allMylikes.length,
                                     scrollDirection: Axis.horizontal,
