@@ -6,7 +6,6 @@ ThemeData theme() {
     primaryColor: Color(0xfffd297b),
     scaffoldBackgroundColor: Colors.white,
     backgroundColor: Color(0xFFF4F4F4),
-
     fontFamily: 'Optima',
     textTheme: TextTheme(
       headline1: TextStyle(

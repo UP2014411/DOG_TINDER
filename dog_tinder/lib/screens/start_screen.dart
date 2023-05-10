@@ -33,7 +33,7 @@ class StartScreen extends StatelessWidget {
                     height: height(context) * 0.01,
                   ),
                   Text(
-                    'Welcome to Tinder for Dog',
+                    'Welcome to Tinder for Dogs',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lora(
                         color: kBlueMainColorOne,
@@ -76,7 +76,7 @@ class StartScreen extends StatelessWidget {
                     //context.read<OnBoardingBloc>().add(StartOnBoarding(pet: pet));
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.transparent,
+                    backgroundColor: Colors.transparent,
                     elevation: 0,
                   ),
                   child: SizedBox(

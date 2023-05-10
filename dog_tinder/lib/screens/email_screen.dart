@@ -46,7 +46,7 @@ class _EmailScreenState extends State<EmailScreen> {
                 },
               ),
               SizedBox(height: height(context) * 0.002),
-              const CustomTextHeader(text: 'What\'s Your Password'),
+              const CustomTextHeader(text: 'What\'s Your Password?'),
               CustomTextField(
                 obscure: true,
                 hint: 'ENTER YOUR PASSWORD',
@@ -64,7 +64,7 @@ class _EmailScreenState extends State<EmailScreen> {
                 totalSteps: 6,
                 currentStep: 1,
                 selectedColor: Theme.of(context).primaryColorDark,
-                unselectedColor: Theme.of(context).backgroundColor,
+                unselectedColor: Theme.of(context).colorScheme.background,
               ),
               SizedBox(height: height(context) * 0.02),
               DecoratedBox(
@@ -94,7 +94,7 @@ class _EmailScreenState extends State<EmailScreen> {
                       //context.read<OnBoardingBloc>().add(StartOnBoarding(pet: pet));
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.transparent,
+                      backgroundColor: Colors.transparent,
                       elevation: 0,
                     ),
                     child: SizedBox(

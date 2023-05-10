@@ -47,7 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "account",
+                    "Account",
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.clip,
                     style: TextStyle(
@@ -87,7 +87,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         borderSide: const BorderSide(
                             color: Color(0x00ffffff), width: 1),
                       ),
-                      hintText: "Dog's Name",
+                      hintText: 'Dog\'s Name',
                       hintStyle: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,

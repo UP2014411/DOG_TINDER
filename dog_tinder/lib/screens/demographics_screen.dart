@@ -37,7 +37,7 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomTextHeader(text: 'What\'s Your Gender?'),
+                const CustomTextHeader(text: 'What\'s Your Dog\'s Gender?'),
                 CustomCheckbox(
                   text: 'MALE',
                   value: obj.isgender,
@@ -55,9 +55,9 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
                   },
                 ),
                 SizedBox(height: height(context) * 0.002),
-                const CustomTextHeader(text: 'What\'s Your Age?'),
+                const CustomTextHeader(text: 'What\'s Your Dog\'s Age?'),
                 CustomTextField(
-                  hint: 'ENTER YOUR AGE',
+                  hint: 'ENTER YOUR DOG\'S AGE',
                   onChanged: (value) {
                     setState(() {
                       age = value;
@@ -72,7 +72,7 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
                   totalSteps: 6,
                   currentStep: 3,
                   selectedColor: Theme.of(context).primaryColorDark,
-                  unselectedColor: Theme.of(context).backgroundColor,
+                  unselectedColor: Theme.of(context).colorScheme.background,
                 ),
                 const SizedBox(height: 10),
                 DecoratedBox(
@@ -100,7 +100,7 @@ class _DemographicsScreenState extends State<DemographicsScreen> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.transparent,
+                        backgroundColor: Colors.transparent,
                         elevation: 0,
                       ),
                       child: SizedBox(
