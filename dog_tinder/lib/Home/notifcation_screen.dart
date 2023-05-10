@@ -53,7 +53,7 @@ class _NotifcationScreenState extends State<NotifcationScreen> {
                     height: height,
                     width: width,
                     child: obj.notifcationList.isEmpty
-                        ? Center(child: Text("No Notifcation Found"))
+                        ? Center(child: Text("No Notification Found"))
                         : ListView.builder(
                             itemCount: obj.notifcationList.length,
                             itemBuilder: (context, index) {

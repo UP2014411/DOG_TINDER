@@ -77,7 +77,7 @@ class _AccountPageState extends State<AccountPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TitleWithIcon(title: 'Biography', iconData: Icons.edit),
+                  const TitleWithIcon(title: 'Bio', iconData: Icons.edit),
                   Text(
                     StaticData.userModel!.bio!,
                     style: GoogleFonts.lora(
