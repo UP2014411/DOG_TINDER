@@ -1,18 +1,14 @@
-import 'firebase_options.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:dog_tinder/helpers/values/colors.dart';
+import 'package:dog_tinder/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:dog_tinder/screens/home_screen.dart';
-import 'package:dog_tinder/screens/welcome_screen.dart';
-import 'package:dog_tinder/widgets/card_provider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-Future<void> main() async {
-  /// Initializes the application
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -21,44 +17,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CardProvider(),
-      child: MaterialApp(
-          title: 'Dog Tinder',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-                // elevation: 5,
-                backgroundColor: Color.fromARGB(255, 255, 60, 0),
-                titleTextStyle: TextStyle(fontSize: 20)),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-                // styling for the match buttons
-                style: ElevatedButton.styleFrom(
-              elevation: 8,
-              backgroundColor: Colors.white,
-              shape: const CircleBorder(),
-              minimumSize: const Size.square(80),
-            )),
-          ),
-          home: const HomePage()),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<StatefulWidget> createState() {
-    return _HomePageState();
-  }
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeScreen(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Tinder for Dog ',
+      theme: ThemeData(
+        textTheme: GoogleFonts.latoTextTheme(
+          Theme.of(context).textTheme,
+        ),
+        primaryColor: kColorRed,
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        brightness: Brightness.light,
+        cupertinoOverrideTheme:
+            const CupertinoThemeData(brightness: Brightness.light),
+        buttonTheme: const ButtonThemeData(disabledColor: kCanvasMainColor),
+      ),
+      builder: (context, widget) {
+        ScreenUtil.init(context);
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+          child: widget!,
+        );
+      },
+      home: SplashScreen(),
     );
   }
 }

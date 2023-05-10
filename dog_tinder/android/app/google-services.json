@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "572574179213",
-    "project_id": "dog-tinder-backend",
-    "storage_bucket": "dog-tinder-backend.appspot.com"
+    "project_number": "992274750084",
+    "project_id": "tinder-93b58",
+    "storage_bucket": "tinder-93b58.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:572574179213:android:993f5b7b53cf0db29127c4",
+        "mobilesdk_app_id": "1:992274750084:android:985db17adacbf35e5740d1",
         "android_client_info": {
           "package_name": "com.example.dog_tinder"
         }
       },
       "oauth_client": [
         {
-          "client_id": "572574179213-22cvnfhqp8990tk7690radp20oadeddd.apps.googleusercontent.com",
+          "client_id": "992274750084-sdt9npqodfq1sc2oeoh5pova0od5ec22.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD6jm3poHgvrKyjXSkQZwc6BxjeAMSpzIc"
+          "current_key": "AIzaSyC_9oOkz3zhl1LGRDvK60Or8TJy1CcvVqk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "572574179213-22cvnfhqp8990tk7690radp20oadeddd.apps.googleusercontent.com",
+              "client_id": "992274750084-sdt9npqodfq1sc2oeoh5pova0od5ec22.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "572574179213-jbv6a0fu9h907nlrg53p1mpus9pb8i1b.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.dogTinder"
-              }
             }
           ]
         }

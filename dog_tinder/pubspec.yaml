@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.0 <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,21 +32,32 @@ dependencies:
   flutter:
     sdk: flutter
 
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.8.0
-  google_fonts: ^4.0.3
+  google_fonts:
+  flutter_screenutil:
+  step_progress_indicator:
+  image_picker:
+  get:
+  another_flushbar:
 
-  provider: ^6.0.1
-  fluttertoast: ^8.2.1
+  firebase_database:
+  firebase_storage:
+  cloud_firestore:
+  firebase_core: 
+  file:
 
-  sqflite: ^2.2.8
+  uuid:
+  equatable:
+  fluttertoast:
+  shared_preferences: 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.12.0
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -59,18 +70,16 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
-  assets:
-    - images/cute.png
-
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  # - assets/
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/svgs/
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -85,24 +94,21 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Rubik
+    - family: Roboto
       fonts:
-        - asset: fonts\Rubik-Regular.ttf
-    - family: Cabin
-      fonts:
-        - asset: fonts\Cabin-Regular.ttf
-    - family: PlusJakartaSans
-      fonts:
-        - asset: fonts\PlusJakartaSans-Regular.ttf
-    - family: Flamante
-      fonts:
-        - asset: fonts\Flamante-Round-0Medium-FFP.ttf
-    - family: Montserrat
-      fonts:
-        - asset: fonts\Montserrat-Regular.otf
-    - family: MontserratBold
-      fonts:
-        - asset: fonts\Montserrat-SemiBold.otf
+        - asset: assets/fonts/Roboto_Black.ttf
+          weight: 900
+        - asset: assets/fonts/Roboto_Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Roboto_Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Roboto_Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto_Light.ttf
+          weight: 300
+        - asset: assets/fonts/Roboto_Thin.ttf
+          weight: 100
+  # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
@@ -116,7 +122,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-# flutter_icons:
-#   android: 'launcher_icon'
-#   ios: true
-#   image_path: 'assets/doughnut.png'

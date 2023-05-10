@@ -1,13 +1,16 @@
 import 'dart:math';
+import 'package:dog_tinder/Home/pet_details.dart';
+import 'package:dog_tinder/controllerts/card_provider.dart';
+import 'package:dog_tinder/controllerts/homepage_controller.dart';
+import 'package:dog_tinder/models/signup_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:dog_tinder/widgets/card_provider.dart';
+import 'package:get/get.dart';
 
 /// Code that makes the swiping possible
 
 class CardSwipe extends StatefulWidget {
   // Gets the image url
-  final String urlImage;
+  final UserSignUpModel urlImage;
   final bool isFront;
 
   const CardSwipe({
@@ -28,62 +31,66 @@ class _CardSwipeState extends State<CardSwipe> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final size = MediaQuery.of(context).size;
 
-      final provider = Provider.of<CardProvider>(context, listen: false);
-      provider.setScreenSize(size);
+      CardProvider.to.setScreenSize(size);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: widget.isFront
-          ? profileFrontCard()
-          : profileCard(), // Profile card of user
+    return InkWell(
+      onTap: () {
+        print(widget.urlImage);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PetDetailsScreen(pet: widget.urlImage),
+            ));
+      },
+      child: SizedBox.expand(
+        child: widget.isFront
+            ? profileFrontCard()
+            : profileCard(), // Profile card of user
+      ),
     );
   }
 
   Widget profileFrontCard() {
-    return GestureDetector(
-      child: LayoutBuilder(builder: (context, constraints) {
-        final provider = Provider.of<CardProvider>(context);
-        final position = provider.position;
-        final milliseconds = provider.isDragging ? 0 : 400;
+    return GetBuilder<CardProvider>(builder: (obj) {
+      return GestureDetector(
+        child: LayoutBuilder(builder: (context, constraints) {
+          final position = obj.position;
+          final milliseconds = obj.isDragging ? 0 : 400;
 
-        final center = constraints.smallest.center(Offset.zero);
-        final angle = provider.angle * pi / 180;
-        final rotatedMatrix = Matrix4.identity()
-          ..translate(center.dx, center.dy)
-          ..rotateZ(angle)
-          ..translate(-center.dx, -center.dy);
+          final center = constraints.smallest.center(Offset.zero);
+          final angle = obj.angle * pi / 180;
+          final rotatedMatrix = Matrix4.identity()
+            ..translate(center.dx, center.dy)
+            ..rotateZ(angle)
+            ..translate(-center.dx, -center.dy);
 
-        return AnimatedContainer(
-          curve: Curves.easeInOut,
-          duration: Duration(milliseconds: milliseconds),
-          transform: rotatedMatrix..translate(position.dx, position.dy),
-          child: Stack(
-            children: [
-              profileCard(),
-              cardStamps(),
-            ],
-          ),
-        );
-      }),
-      onPanStart: (details) {
-        final provider = Provider.of<CardProvider>(context, listen: false);
-
-        provider.startPosition(details);
-      },
-      onPanUpdate: (details) {
-        final provider = Provider.of<CardProvider>(context, listen: false);
-
-        provider.updatePosition(details);
-      },
-      onPanEnd: (details) {
-        final provider = Provider.of<CardProvider>(context, listen: false);
-
-        provider.endPosition();
-      },
-    );
+          return AnimatedContainer(
+            curve: Curves.easeInOut,
+            duration: Duration(milliseconds: milliseconds),
+            transform: rotatedMatrix..translate(position.dx, position.dy),
+            child: Stack(
+              children: [
+                profileCard(),
+                cardStamps(),
+              ],
+            ),
+          );
+        }),
+        onPanStart: (details) {
+          obj.startPosition(details);
+        },
+        onPanUpdate: (details) {
+          obj.updatePosition(details);
+        },
+        onPanEnd: (details) {
+          obj.endPosition();
+        },
+      );
+    });
   }
 
   Widget profileCard() {
@@ -92,7 +99,7 @@ class _CardSwipeState extends State<CardSwipe> {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(widget.urlImage),
+            image: NetworkImage(widget.urlImage.images![0]),
             fit: BoxFit.cover,
             alignment: Alignment(-0.3, 0),
           ),
@@ -102,18 +109,26 @@ class _CardSwipeState extends State<CardSwipe> {
   }
 
   Widget cardStamps() {
-    final provider = Provider.of<CardProvider>(context);
-    final status =
-        provider.getStatus(); // gets thr status of the card (like or dislike)
-    final opacity = provider.getStatusOpacity();
+    final status = CardProvider.to.getStatus();
+
+    // gets thr status of the card (like or dislike)
+    final opacity = CardProvider.to.getStatusOpacity();
 
     switch (status) {
       case CardStatus.like:
+        Future.delayed(Duration(seconds: 1), () {
+          CardProvider.to.sendnotifcation(widget.urlImage.id!);
+          HomePagController.to.removeItem(widget.urlImage);
+        });
+
         final child = cardStamp(
             angle: -0.5, color: Colors.green, text: 'LIKE', opacity: opacity);
 
         return Positioned(top: 64, left: 50, child: child);
       case CardStatus.dislike:
+        Future.delayed(Duration(seconds: 1), () {
+          HomePagController.to.removeItem(widget.urlImage);
+        });
         final child = cardStamp(
             angle: 0.5, color: Colors.red, text: 'NOPE', opacity: opacity);
 

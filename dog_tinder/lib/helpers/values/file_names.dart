@@ -1,0 +1,1 @@
+const String kDogLogoSvg = 'assets/svgs/dog_match.svg';

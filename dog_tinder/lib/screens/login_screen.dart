@@ -1,8 +1,20 @@
+import 'package:dog_tinder/controllerts/login_controller.dart';
+import 'package:dog_tinder/helpers/values/colors.dart';
+import 'package:dog_tinder/screens/onboarding_screen.dart';
+import 'package:dog_tinder/staticdata.dart';
+import 'package:dog_tinder/widgets/custom_elevated_button.dart';
+import 'package:dog_tinder/widgets/flushbar.dart';
 import 'package:flutter/material.dart';
-import 'package:dog_tinder/styles/app_style.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../helpers/sizes.dart';
+import '../../../widgets/custom_app_bar.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  static const String routeName = '/login';
+
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -10,159 +22,93 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
+  void initState() {
+    Get.put(LoginController());
+    super.initState();
+  }
+
+  String? email, pass;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppStyle.welcomeAppBar,
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xfffd297b), Color(0xffff655b)],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(height(context) * 0.1),
+        child: const CustomAppBar(
+          titleText: 'Start',
+          hasActions: false,
         ),
-        alignment: Alignment.center,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 50, 16, 16),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 16),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Log in",
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 24,
-                        color: Color(0xff000000),
-                      ),
-                    ),
-                  ),
-                ),
-                TextField(
-                  controller: TextEditingController(),
-                  obscureText: false,
-                  textAlign: TextAlign.start,
-                  maxLines: 1,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff000000),
-                  ),
-                  decoration: InputDecoration(
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide:
-                          const BorderSide(color: Color(0x00ffffff), width: 1),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide:
-                          const BorderSide(color: Color(0x00ffffff), width: 1),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide:
-                          const BorderSide(color: Color(0x00ffffff), width: 1),
-                    ),
-                    hintText: "Email Address",
-                    hintStyle: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      color: Color(0xff9f9d9d),
-                    ),
-                    filled: true,
-                    fillColor: const Color(0xfff2f2f3),
-                    isDense: false,
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
-                  child: TextField(
-                    controller: TextEditingController(),
-                    obscureText: false,
-                    textAlign: TextAlign.start,
-                    maxLines: 1,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      color: Color(0xff000000),
-                    ),
-                    decoration: InputDecoration(
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                        borderSide: const BorderSide(
-                            color: Color(0x00ffffff), width: 1),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                        borderSide: const BorderSide(
-                            color: Color(0x00ffffff), width: 1),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                        borderSide: const BorderSide(
-                            color: Color(0x00ffffff), width: 1),
-                      ),
-                      hintText: "Password",
-                      hintStyle: const TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 14,
-                        color: Color(0xff9f9d9d),
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xfff2f2f3),
-                      isDense: false,
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 8, horizontal: 12),
-                      suffixIcon: const Icon(Icons.visibility,
-                          color: Color(0xff9f9d9d), size: 20),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 0),
-                  child: MaterialButton(
-                    onPressed: () {},
-                    color: const Color(0x00ff5630),
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      side:
-                          const BorderSide(color: Color(0xffffffff), width: 1),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    textColor: const Color(0xffffffff),
-                    height: 50,
-                    minWidth: MediaQuery.of(context).size.width,
-                    child: const Text(
-                      "Log in",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              onChanged: (v) {
+                setState(() {
+                  email = v;
+                });
+              },
+              decoration: const InputDecoration(
+                labelText: 'Email',
+              ),
             ),
-          ),
+            const SizedBox(
+              height: 10,
+            ),
+            TextField(
+              onChanged: (p) {
+                setState(() {
+                  pass = p;
+                });
+              },
+              decoration: const InputDecoration(
+                labelText: 'Password',
+              ),
+              obscureText: true,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: 300,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomElevatedButton(
+                    text: 'LOGIN',
+                    beginColor: kBlueMainColorOne,
+                    endColor: kBlueMainColorOne.withAlpha(1000),
+                    textColor: kColorWhite,
+                    onPressed: () {
+                      if (email == null || pass == null) {
+                        MyFlushBar.showSimpleFlushBar("Fill All Fields",
+                            context, Colors.red, Colors.white);
+                      } else {
+                        LoginController.to
+                            .getUserProfile(email!, pass!, context);
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  CustomElevatedButton(
+                      text: 'SIGNUP',
+                      beginColor: kBlueMainColorOne.withAlpha(1000),
+                      endColor: kBlueMainColorOne,
+                      textColor: kColorWhite,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OnBoardingScreen(),
+                            ));
+                      }),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
